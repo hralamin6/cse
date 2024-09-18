@@ -3,7 +3,7 @@
     <!-- Header -->
     <header class="w-full text-center py-10 bg-white dark:bg-gray-800 shadow-md">
         <h1 class="text-4xl font-extrabold text-gray-900 dark:text-gray-100">Welcome to {{setup('name')}}</h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mt-4">Your project is ready to start building amazing things!</p>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mt-4">Your project is ready to start building amazing things! c</p>
         <a href="{{route('app.dashboard')}}" wire:navigate class="capitalize">dashboard</a>
 
     </header>
