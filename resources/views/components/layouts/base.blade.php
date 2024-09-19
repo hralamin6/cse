@@ -14,19 +14,7 @@
             }
         }
     </style>
-    <style>
-        @keyframes zoomInOut {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1); /* Zoom in */
-            }
-            100% {
-                transform: scale(1); /* Zoom out */
-            }
-        }
-    </style>
+
     @stack('head')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
