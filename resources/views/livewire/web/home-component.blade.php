@@ -318,9 +318,15 @@
                 autoSlideInterval: null,
                 zoomDuration: '10s',
                 slides: [
-                        @foreach(\App\Models\Category::whereName('slider')->first()->posts()->first()->getMedia('postImages') as $media)
+                    @php
+                        $medias = \App\Models\Post::whereHas('category', function ($query) {$query->where('name', 'slider');})->first();
+                    @endphp
+                        @if($medias)
+                        @foreach( optional($medias)->getMedia('postImages') as $media)
                     { image: '{{ $media->getAvailableUrl(['thumb']) }}', title: 'Slide {{ $loop->iteration }}' },
                     @endforeach
+                        @endif
+
                 ],
                 zoomStyle: `animation: zoomInOut 10s ease-in-out forwards;`,
 
