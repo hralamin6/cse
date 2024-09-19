@@ -24,7 +24,7 @@ class Message extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('chatImages')->useDisk('media')->registerMediaConversions(function (Media $media = null) {
-            $this->addMediaConversion('thumb')->quality('10')->nonQueued();
+            $this->addMediaConversion('thumb')->quality('50')->nonQueued();
 
         });
 

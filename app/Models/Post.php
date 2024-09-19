@@ -22,11 +22,11 @@ class Post extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('postImages')->registerMediaConversions(function (Media $media = null) {
-            $this->addMediaConversion('thumb')->quality('10')->nonQueued();
+            $this->addMediaConversion('thumb')->quality('80')->nonQueued();
 
         });
         $this->addMediaCollection('post')->singleFile()->registerMediaConversions(function (Media $media = null) {
-            $this->addMediaConversion('thumb')->quality('10')->nonQueued();
+            $this->addMediaConversion('thumb')->quality('50')->nonQueued();
 
         });
     }

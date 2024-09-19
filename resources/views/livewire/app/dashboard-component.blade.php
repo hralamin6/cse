@@ -314,6 +314,7 @@
     <script>
         Alpine.data('dashboard', (last) => ({
             init() {
+
                 this.tap();
                 this.scrollToLast(this.lastId);
                 Echo.private(`chat`)

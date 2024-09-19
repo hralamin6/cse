@@ -126,9 +126,9 @@
 {{--                                            </a>--}}
                                         </td>
                                         <td class="max-w-48 truncate px-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                            @if($item->tags)
+                                            @if(@$item->tags)
                                                 @foreach(json_decode($item->tags) as $tag)
-                                                    <span class="inline-block px-2 py-1 bg-blue-500 text-white rounded-full text-xs">{{ $tag }}</span>
+                                                    <span class="inline-block px-2 py-1 bg-blue-500 text-white rounded-full text-xs">{{ @$tag }}</span>
                                                 @endforeach
                                             @else
                                                 @lang('No tags')
@@ -215,7 +215,7 @@
                         </div>
                         <div>
                             <label class="text-gray-700 dark:text-gray-200" for="category_id">@lang('category')</label>
-                            <x-select id="category_id" wire:model="category_id">
+                            <x-select errorName="category_id" id="category_id" wire:model="category_id">
                                 <option value="">@lang('Select Category')</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -238,7 +238,7 @@
                         <!-- Status -->
                         <div>
                             <label class="text-gray-700 dark:text-gray-200" for="status">@lang('status')</label>
-                            <x-select id="status" wire:model="status">
+                            <x-select errorName="status"  id="status" wire:model="status">
                                 <option value="published">@lang('published')</option>
                                 <option value="draft">@lang('draft')</option>
                             </x-select>

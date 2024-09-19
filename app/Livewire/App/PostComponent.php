@@ -86,9 +86,7 @@ class PostComponent extends Component
     {
         $this->authorize('app.posts.create');
         $this->user_id = Auth::id();
-        $this->tags = json_encode(array_map('trim', explode(',', $this->tags))); // Convert to JSON array
-        $this->meta_title = $this->meta_title==''?$this->title: $this->meta_title;
-        $this->meta_description = $this->meta_description==''?$this->excerpt: $this->meta_description;
+
         $data = $this->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
@@ -104,12 +102,14 @@ class PostComponent extends Component
             'image_url' => 'nullable|url', // 2MB Max
 
         ]);
-
+        $data['tags'] = json_encode(array_map('trim', explode(',', $this->tags))); // Convert to JSON array
+        $data['meta_title'] = $this->meta_title==''?$this->title: $this->meta_title;
+        $data['meta_description'] = $this->meta_description==''?$this->excerpt: $this->meta_description;
         $data = Post::create($data);
         if ($this->image_url!=null) {
             $extension = pathinfo(parse_url($this->image_url, PHP_URL_PATH), PATHINFO_EXTENSION);
             $media =  $data->addMediaFromUrl($this->image_url)->usingFileName($data->id. '.' . $extension)->toMediaCollection('postImages');
-            $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
+            $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
             if (file_exists($path)) {
                 unlink($path);
             }
@@ -117,7 +117,7 @@ class PostComponent extends Component
         }elseif($this->photo!=null){
             foreach ($this->photo as $p) {
                 $media = $data->addMedia($p->getRealPath())->usingFileName($data->id. '.' . $p->extension())->toMediaCollection('postImages');
-                $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
+                $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
                 if (file_exists($path)) {
                     unlink($path);
                 }            }
@@ -172,7 +172,7 @@ class PostComponent extends Component
         if ($this->image_url!=null) {
             $extension = pathinfo(parse_url($this->image_url, PHP_URL_PATH), PATHINFO_EXTENSION);
             $media =  $this->post->addMediaFromUrl($this->image_url)->usingFileName($this->post->id. '.' . $extension)->toMediaCollection('postImages');
-            $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
+            $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
             if (file_exists($path)) {
                 unlink($path);
             }
@@ -180,7 +180,7 @@ class PostComponent extends Component
         }elseif($this->photo!=null){
             foreach ($this->photo as $p) {
                 $media = $this->post->addMedia($p->getRealPath())->usingFileName($this->post->id. '.' . $p->extension())->toMediaCollection('postImages');
-                $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
+                $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
                 if (file_exists($path)) {
                     unlink($path);
                 }            }
@@ -250,7 +250,7 @@ class PostComponent extends Component
     {
         $this->authorize('app.posts.index');
         $items = $this->data;
-        $categories = \App\Models\Category::whereNotNull('parent_id')->get();
+        $categories = \App\Models\Category::get();
 
         return view('livewire.app.post-component', compact('items', 'categories'));
     }

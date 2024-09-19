@@ -1,48 +1,194 @@
-    <div class="container px-6 py-4 mx-auto">
-        <div class="lg:flex lg:items-center lg:justify-between">
-            <div class="flex items-center justify-between">
-                <a href="#">
-                    <img class="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="">
-                </a>
-
-                <!-- Mobile menu button -->
-                <div class="flex lg:hidden">
-                    <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-                        </svg>
-
-                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center">
-                <div class="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                    <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Join asdf</a>
-                    <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Browse Topics</a>
-                    <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Random Item</a>
-                    <a href="#" class="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Experts</a>
-                </div>
-
-                <div class="flex items-center mt-4 lg:mt-0">
-                    <button class="hidden mx-4 text-gray-600 transition-colors duration-300 transform lg:block dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 focus:text-gray-700 dark:focus:text-gray-400 focus:outline-none" aria-label="show notifications">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 17H20L18.5951 15.5951C18.2141 15.2141 18 14.6973 18 14.1585V11C18 8.38757 16.3304 6.16509 14 5.34142V5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5V5.34142C7.66962 6.16509 6 8.38757 6 11V14.1585C6 14.6973 5.78595 15.2141 5.40493 15.5951L4 17H9M15 17V18C15 19.6569 13.6569 21 12 21C10.3431 21 9 19.6569 9 18V17M15 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-
-                    <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                        <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
-                        </div>
-
-                        <h3 class="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
-                    </button>
-                </div>
-            </div>
-        </div>
+<div class="bg-gray-100 dark:bg-dark py-2 px-4  justify-between items-center text-sm  hidden md:flex">
+    <div class="text-gray-600 dark:text-gray-300">
+        <a href="mailto:cse@mbstu.ac.bd" class="hover:underline">📧 cse@mbstu.ac.bd</a> |
+        <span>Santosh, Tangail, Bangladesh</span>
     </div>
+    <div class="flex items-center space-x-4">
+        <a href="#" class="text-gray-600 dark:text-gray-300 hover:underline">FAQ</a>
+        <a href="#" class="text-gray-600 dark:text-gray-300 hover:underline">Login</a>
+    </div>
+</div>
+
+<!-- Main Header -->
+<div class="text-center py-6 bg-primary dark:bg-primary-dark hidden md:block">
+    <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Mawlana Bhashani Science and Technology University</h1>
+    <h2 class="text-xl font-semibold text-primary-dark">Department of Computer Science and Engineering</h2>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="bg-primary dark:bg-primary-dark px-4 py-3 text-white relative z-10 hidden md:block">
+    <ul class="flex space-x-4 justify-center text-sm">
+        <li><a href="#" class="hover:underline">HOME</a></li>
+        <li><a href="#" class="hover:underline">ABOUT</a></li>
+
+        <!-- ACADEMIC Menu with Click Dropdown -->
+        <li class="relative" x-data="{ open: false }">
+            <a href="#" @click.prevent="open = !open" class="hover:underline flex items-center">
+                ACADEMIC
+                <svg class="ml-1 h-4 w-4 transform" :class="open ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+            <!-- Dropdown Menu -->
+            <ul x-show="open" @click.away="open = false" x-transition class="absolute left-0 bg-white text-gray-700 dark:bg-dark dark:text-gray-300 mt-2 rounded-md shadow-lg w-48">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">PROGRAM</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">ADMISSION</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">CURRICULUM</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">CALENDAR</a></li>
+            </ul>
+        </li>
+
+        <!-- PEOPLE Menu with Click Dropdown -->
+        <li class="relative" x-data="{ open: false }">
+            <a href="#" @click.prevent="open = !open" class="hover:underline flex items-center">
+                PEOPLE
+                <svg class="ml-1 h-4 w-4 transform" :class="open ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+            <ul x-show="open" @click.away="open = false" x-transition class="absolute left-0 bg-white text-gray-700 dark:bg-dark dark:text-gray-300 mt-2 rounded-md shadow-lg w-48">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Faculty</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Staff</a></li>
+            </ul>
+        </li>
+
+        <!-- RESEARCH Menu with Click Dropdown -->
+        <li class="relative" x-data="{ open: false }">
+            <a href="#" @click.prevent="open = !open" class="hover:underline flex items-center">
+                RESEARCH
+                <svg class="ml-1 h-4 w-4 transform" :class="open ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+            <ul x-show="open" @click.away="open = false" x-transition class="absolute left-0 bg-white text-gray-700 dark:bg-dark dark:text-gray-300 mt-2 rounded-md shadow-lg w-48">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Publications</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a></li>
+            </ul>
+        </li>
+
+        <!-- ANNOUNCEMENT Menu with Click Dropdown -->
+        <li class="relative" x-data="{ open: false }">
+            <a href="#" @click.prevent="open = !open" class="hover:underline flex items-center">
+                ANNOUNCEMENT
+                <svg class="ml-1 h-4 w-4 transform" :class="open ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+            <ul x-show="open" @click.away="open = false" x-transition class="absolute left-0 bg-white text-gray-700 dark:bg-dark dark:text-gray-300 mt-2 rounded-md shadow-lg w-48">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">News</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Events</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#" class="hover:underline">ALUMNI</a></li>
+        <li><a href="#" class="hover:underline">CONTACT</a></li>
+
+        <!-- TRAINING Menu -->
+        <li><a href="#" class="hover:underline text-yellow-400 font-semibold">TRAINING</a></li>
+
+        <!-- M.Sc. Admission with Highlight -->
+        <li><a href="#" class="hover:underline font-semibold text-yellow-400">M.Sc. ADMISSION *</a></li>
+    </ul>
+</nav>
+<!-- Mobile Navbar -->
+<nav class="dark:bg-primary-dark bg-primary px-4 py-3 text-white relative md:hidden" x-data="{ open: false }">
+    <!-- Mobile Menu Icon -->
+    <div class="flex justify-between items-center">
+        <div class="text-lg font-bold">Computer Science and Engineering</div>
+        <button @click="open = !open" class="text-white focus:outline-none">
+            <!-- Hamburger Icon -->
+            <svg class="w-6 h-6 transition-transform duration-300" :class="open ? 'rotate-90' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu with Smooth Transition -->
+    <div x-show="open" x-collapse.duration.300ms
+         class="absolute right-0 left-0 top-8 mt-4 space-y-2 shadow-lg bg-dark rounded-md z-50">
+        <ul class="bg-dark p-4 rounded-md">
+            <!-- Home Link -->
+            <li>
+                <a href="#" class="block text-white py-2">Home</a>
+            </li>
+            <!-- About Dropdown -->
+            <li x-data="{ dropdownOpen: false }">
+                <a href="#" @click.prevent="dropdownOpen = !dropdownOpen" class="block text-white py-2 flex justify-between items-center">
+                    About
+                    <svg class="w-4 h-4 transform transition-transform duration-300" :class="dropdownOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <ul x-show="dropdownOpen" x-collapse.duration.200ms
+                    class="pl-4 mt-2 space-y-2 text-sm">
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Team</a></li>
+                    <li><a href="#" class="block text-gray-400 hover:text-white">History</a></li>
+                </ul>
+            </li>
+            <!-- Academic Dropdown -->
+            <li x-data="{ dropdownOpen: false }">
+                <a href="#" @click.prevent="dropdownOpen = !dropdownOpen" class="block text-red-400 py-2 flex justify-between items-center">
+                    Academic
+                    <svg class="w-4 h-4 transform transition-transform duration-300" :class="dropdownOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <ul x-show="dropdownOpen" x-collapse.duration.200ms
+                    class="pl-4 mt-2 space-y-2 text-sm">
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Program</a></li>
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Admission</a></li>
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Curriculum</a></li>
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Calendar</a></li>
+                </ul>
+            </li>
+            <!-- People Dropdown -->
+            <li x-data="{ dropdownOpen: false }">
+                <a href="#" @click.prevent="dropdownOpen = !dropdownOpen" class="block text-white py-2 flex justify-between items-center">
+                    People
+                    <svg class="w-4 h-4 transform transition-transform duration-300" :class="dropdownOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <ul x-show="dropdownOpen" x-collapse.duration.200ms
+                    class="pl-4 mt-2 space-y-2 text-sm">
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Faculty</a></li>
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Staff</a></li>
+                </ul>
+            </li>
+            <!-- Research Dropdown -->
+            <li x-data="{ dropdownOpen: false }">
+                <a href="#" @click.prevent="dropdownOpen = !dropdownOpen" class="block text-white py-2 flex justify-between items-center">
+                    Research
+                    <svg class="w-4 h-4 transform transition-transform duration-300" :class="dropdownOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <ul x-show="dropdownOpen" x-collapse.duration.200ms
+                    class="pl-4 mt-2 space-y-2 text-sm">
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Publications</a></li>
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Projects</a></li>
+                </ul>
+            </li>
+            <!-- Announcement Dropdown -->
+            <li x-data="{ dropdownOpen: false }">
+                <a href="#" @click.prevent="dropdownOpen = !dropdownOpen" class="block text-white py-2 flex justify-between items-center">
+                    Announcement
+                    <svg class="w-4 h-4 transform transition-transform duration-300" :class="dropdownOpen ? 'rotate-180' : ''" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+                <ul x-show="dropdownOpen" x-collapse.duration.200ms
+                    class="pl-4 mt-2 space-y-2 text-sm">
+                    <li><a href="#" class="block text-gray-400 hover:text-white">News</a></li>
+                    <li><a href="#" class="block text-gray-400 hover:text-white">Events</a></li>
+                </ul>
+            </li>
+            <!-- Simple Links -->
+            <li><a href="#" class="block text-white py-2 hover:text-gray-300">Alumni</a></li>
+            <li><a href="#" class="block text-white py-2 hover:text-gray-300">Contact</a></li>
+            <!-- Training Highlight -->
+            <li><a href="#" class="block text-yellow-400 py-2">Training *</a></li>
+            <li><a href="#" class="block text-yellow-400 py-2">M.Sc. Admission *</a></li>
+        </ul>
+    </div>
+</nav>

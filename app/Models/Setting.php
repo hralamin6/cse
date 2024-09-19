@@ -18,10 +18,10 @@ class Setting extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('logo')->singleFile()->registerMediaConversions(function (Media $media = null) {
-            $this->addMediaConversion('thumb')->quality('10')->nonQueued();
+            $this->addMediaConversion('thumb')->quality('50')->nonQueued();
         });
         $this->addMediaCollection('icon')->singleFile()->registerMediaConversions(function (Media $media = null) {
-            $this->addMediaConversion('thumb')->quality('10')->nonQueued();
+            $this->addMediaConversion('thumb')->quality('50')->nonQueued();
         });
     }
 //    public static function getByKey($key, $default = null)
