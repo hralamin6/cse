@@ -12,8 +12,8 @@ if (!function_exists('getImage')) {
     {
         $placeholderUrl = setup('placeHolder') != '' ? setup('placeHolder') : $defaultUrl;
 
-        return $model->getFirstMediaUrl($collection, $conversion)
-            ?: $placeholderUrl;
+        return optional($model->getMedia($collection)->last())->getUrl($conversion=='default'?'':$conversion)?: $placeholderUrl;
+//        return $model->getFirstMediaUrl($collection, $conversion) ?: $placeholderUrl;
     }
 }
 if (!function_exists('getUserProfileImage')) {
@@ -35,7 +35,8 @@ if (!function_exists('getSettingImage')) {
         }
 
         // Return the image URL or the default placeholder
-        return $settings[$key]?->getFirstMediaUrl($collection, $conversion) ?? setup('placeHolder', $defaultUrl);
+        return optional($settings[$key]?->getMedia($collection)->last())->getUrl($conversion=='default'?'':$conversion)?? setup('placeHolder', $defaultUrl);
+//        return $settings[$key]?->getFirstMediaUrl($collection, $conversion) ?? setup('placeHolder', $defaultUrl);
     }
 }
 

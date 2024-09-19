@@ -109,7 +109,7 @@ class PostComponent extends Component
         if ($this->image_url!=null) {
             $extension = pathinfo(parse_url($this->image_url, PHP_URL_PATH), PATHINFO_EXTENSION);
             $media =  $data->addMediaFromUrl($this->image_url)->usingFileName($data->id. '.' . $extension)->toMediaCollection('postImages');
-            $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
+            $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
             if (file_exists($path)) {
                 unlink($path);
             }
@@ -117,7 +117,7 @@ class PostComponent extends Component
         }elseif($this->photo!=null){
             foreach ($this->photo as $p) {
                 $media = $data->addMedia($p->getRealPath())->usingFileName($data->id. '.' . $p->extension())->toMediaCollection('postImages');
-                $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
+                $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
                 if (file_exists($path)) {
                     unlink($path);
                 }            }
@@ -172,7 +172,7 @@ class PostComponent extends Component
         if ($this->image_url!=null) {
             $extension = pathinfo(parse_url($this->image_url, PHP_URL_PATH), PATHINFO_EXTENSION);
             $media =  $this->post->addMediaFromUrl($this->image_url)->usingFileName($this->post->id. '.' . $extension)->toMediaCollection('postImages');
-            $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
+            $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
             if (file_exists($path)) {
                 unlink($path);
             }
@@ -180,7 +180,7 @@ class PostComponent extends Component
         }elseif($this->photo!=null){
             foreach ($this->photo as $p) {
                 $media = $this->post->addMedia($p->getRealPath())->usingFileName($this->post->id. '.' . $p->extension())->toMediaCollection('postImages');
-                $path = storage_path("app/public/Post/Setting/".$media->id.'/'. $media->file_name);
+                $path = storage_path("app/public/Post/".$media->id.'/'. $media->file_name);
                 if (file_exists($path)) {
                     unlink($path);
                 }            }

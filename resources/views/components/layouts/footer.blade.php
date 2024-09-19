@@ -10,7 +10,9 @@
         <!-- Contact Section -->
         <div>
             <h2 class="font-bold text-lg mb-4">Contact</h2>
-            <img src="https://via.placeholder.com/150x50" alt="CSE Logo" class="mb-4">
+            <div class="dark:bg-primary-light rounded border-gray-500 p-2">
+            <img src="{{ getSettingImage('logoImage', 'logo', 'default') }}" alt="CSE Logo" class="mb-4 h-10">
+            </div>
             <p class="mb-2"><i class="fas fa-envelope"></i> cse@mbstu.ac.bd</p>
             <p class="mb-2"><i class="fas fa-map-marker-alt"></i> Santosh, Tangail, Bangladesh</p>
             <a href="https://www.facebook.com" target="_blank" class="text-white dark:text-gray-300 hover:underline">

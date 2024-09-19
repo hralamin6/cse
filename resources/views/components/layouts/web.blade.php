@@ -12,6 +12,7 @@
                     @isset($slot)
                         {{ $slot }}
                     @endisset
+                    @includeIf('components.layouts.footer')
                 </div>
             </main>
         </div>

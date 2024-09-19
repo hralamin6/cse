@@ -37,23 +37,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Create 5 parent categories
-        $parentCategories = Category::factory()->count(5)->create();
+//        $parentCategories = Category::factory()->count(5)->create();
+        $parentCategories = Category::factory()->count(1)->create(['name' => 'news']);
 
         // Create 3 child categories for each parent category
         $parentCategories->each(function ($parentCategory) {
-            Category::factory()->count(3)->childCategory($parentCategory->id)->create();
+           $childCategories = Category::factory()->count(3)->childCategory($parentCategory->id)->create();
+            $childCategories->each(function ($category) {
+                Post::factory()->count(5)->create([
+                    'user_id' => 1,
+                    'category_id' => $category->id,
+                ]);
+            });
         });
-
-        // Create 10 users
-        $users = User::factory()->count(10)->create();
-
-        // For each user, create 10 posts with random child categories
-        $users->each(function ($user) {
-            Post::factory()->count(10)->create([
-                'user_id' => $user->id,
-                'category_id' => Category::whereNotNull('parent_id')->inRandomOrder()->first()->id, // Random child category
-            ]);
-        });
+//        $users = User::factory()->count(2)->create();
+//        $users->each(function ($user) {
+//            Post::factory()->count(5)->create([
+//                'user_id' => $user->id,
+//                'category_id' => Category::whereNotNull('parent_id')->inRandomOrder()->first()->id, // Random child category
+//            ]);
+//        });
     }
 
 

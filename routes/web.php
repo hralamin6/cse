@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Livewire\Web\HomeComponent::class)->name('web.home');
+Route::get('/news/{slug}', \App\Livewire\Web\NewsDetailComponent::class)->name('web.news.detail');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {

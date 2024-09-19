@@ -8,11 +8,24 @@
         .flickity-viewport {
             height: 500px !important;
         }
+             /* General Print Styles */
         @media print {
-            #header, #footer, #url {
-                display: none;
+            /* Hide elements with the 'no-print' class */
+            .no-print {
+                display: none !important;
+            }
+
+            /* Ensure the printable content takes full width */
+            #printable-content {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+                background: white;
             }
         }
+
+
     </style>
 
     @stack('head')

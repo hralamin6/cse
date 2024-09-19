@@ -1,5 +1,5 @@
 
-<div class="flex h-48 md:h-[466px] mb-4 -mx-2" x-data="sliderApp()">
+<div class="flex h-48 md:h-[466px] mb-4 -mx-2" x-data="imageSlider()">
     <!-- Main Image Section - Slider -->
     <div
         class="w-full relative overflow-hidden"
