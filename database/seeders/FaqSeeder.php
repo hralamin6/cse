@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\faq;
+use App\Models\Faq;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +38,7 @@ class FaqSeeder extends Seeder
         ];
 
         foreach ($faqs as $faq) {
-            faq::updateOrCreate(
+            Faq::updateOrCreate(
                 ['question' => $faq['question']], // Condition to check for duplicates
                 ['answer' => $faq['answer'], 'updated_at' => now(), 'created_at' => now()]
             );
