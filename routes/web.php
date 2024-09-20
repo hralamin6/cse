@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Livewire\Web\HomeComponent::class)->name('web.home');
+Route::get('/faq', \App\Livewire\Web\FaqComponent::class)->name('web.faq');
 Route::get('/news/{slug}', \App\Livewire\Web\NewsDetailComponent::class)->name('web.news.detail');
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('app', \App\Livewire\App\DashboardComponent::class)->name('app.dashboard');
+    Route::get('app/faqs', \App\Livewire\App\FaqComponent::class)->name('app.faqs');
     Route::get('app/roles', \App\Livewire\App\RoleComponent::class)->name('app.roles');
     Route::get('app/backups', \App\Livewire\App\BackupComponent::class)->name('app.backups');
     Route::get('app/users', \App\Livewire\App\UserComponent::class)->name('app.users');
@@ -51,6 +53,7 @@ Route::get('cmd/{slug}', function ($slug = null) {
 });
 
 
+
+
+
 Route::get('{slug}', \App\Livewire\Web\PageComponent::class)->name('web.page');
-
-

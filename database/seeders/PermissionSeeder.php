@@ -114,6 +114,29 @@ class PermissionSeeder extends Seeder
             'slug' => 'app.categories.delete',
         ]);
 
+        // Faqs Management Module
+        $moduleAppFaq = Module::updateOrCreate(['name' => 'Faq Management']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppFaq->id,
+            'name' => 'access faq',
+            'slug' => 'app.faqs.index',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppFaq->id,
+            'name' => 'create faq',
+            'slug' => 'app.faqs.create',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppFaq->id,
+            'name' => 'edit faq',
+            'slug' => 'app.faqs.edit',
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppFaq->id,
+            'name' => 'delete faq',
+            'slug' => 'app.faqs.delete',
+        ]);
+
         // Setting Management Module
         $moduleAppSetting = Module::updateOrCreate(['name' => 'Setting Management']);
         Permission::updateOrCreate([

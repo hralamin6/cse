@@ -28,7 +28,7 @@
 
 @endpush
 <!-- Main Navbar -->
-<nav class="bg-primary-dark dark:bg-primary-light text-white" x-data="{mobileOpen: false, open: false }">
+<nav class="bg-primary-dark dark:bg-primary-light text-white " x-data="{mobileOpen: false, open: false }">
 
     <div class="bg-purple-800 text-white p-2 flex gap-2 md:gap-4 items-center justify-between dark:bg-gray-900 dark:text-gray-300">
         <!-- Latest Notices Section -->
@@ -46,6 +46,7 @@
         </div>
 
     </div>
+
     <!-- Top Bar with Icons, Text, and Responsive Design -->
     <div class="bg-gray-100 dark:bg-gray-800 text-gray-600  dark:text-gray-300 text-sm py-2 px-4 flex md:flex-row items-center justify-between">
         <!-- Left Section -->
@@ -75,10 +76,10 @@
             </div>
             <span class="hidden md:inline">|</span>
 
-            <div class="flex items-center space-x-1">
+            <a href="{{route('web.faq')}}" wire:navigate class="flex items-center space-x-1">
                 <i class='bx bx-question-mark text-lg'></i> <!-- Boxicon for FAQ -->
                 <span class="hidden md:inline">FAQ</span> <!-- Hide text on very small screens -->
-            </div>
+            </a>
         </div>
 
         <!-- Right Section -->
@@ -99,7 +100,7 @@
                 <i class='bx bx-globe text-lg cursor-pointer' @click="open = !open"></i>
                 <div class="group inline-block">
                     <button class="focus:outline-none hidden md:inline" @click="open = !open">Language</button>
-                    <ul x-show="open" @click.away="open = false" class="absolute bg-white dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32 z-50">
+                    <ul x-show="open" @click.away="open = false" class="absolute bg-white right-4 dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32 z-50">
                         <li><a wire:click.prevent="$set('locale', 'bn')" class="cursor-pointer {{session()->get('locale') == 'bn' ? 'bg-gray-200 dark:bg-gray-600' : ''}} block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">Bangla</a></li>
                         <li><a wire:click.prevent="$set('locale', 'en')" class="cursor-pointer {{session()->get('locale') == 'en' ? 'bg-gray-200 dark:bg-gray-600' : ''}} block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">English</a></li>
                         <li><a wire:click.prevent="$set('locale', 'ar')" class="cursor-pointer {{session()->get('locale') == 'ar' ? 'bg-gray-200 dark:bg-gray-600' : ''}} block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">Arabic</a></li>
@@ -114,7 +115,7 @@
                 <i class='bx bx-palette text-lg cursor-pointer' @click="open = !open"></i>
                 <div class="group inline-block">
                     <button class="focus:outline-none hidden md:inline" @click="open = !open">Theme</button>
-                    <ul x-show="open" @click.away="open = false" class="absolute bg-white dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32 z-50">
+                    <ul x-show="open" @click.away="open = false" class="absolute bg-white right-4 dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32 z-50">
 {{--                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('light'); open = false">Light</a></li>--}}
 {{--                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('dark'); open = false">Dark</a></li>--}}
 {{--                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('system'); open = false">System</a></li>--}}
@@ -159,11 +160,20 @@
 
             <!-- Divider -->
             <span class="hidden md:inline">|</span>
-            <!-- Login Section -->
-            <div class="flex items-center space-x-1">
-                <i class='bx bx-lock-alt text-lg'></i> <!-- Boxicon for Login -->
-                <a href="#" class="hover:text-gray-800 dark:hover:text-gray-100 hidden md:inline">Login</a>
-            </div>
+
+            @guest
+                <a href="{{route('login')}}" wire:navigate class="flex items-center space-x-1">
+                    <i class='bx bx-lock-alt text-lg'></i> <!-- Boxicon for Login -->
+                    <span class="hover:text-gray-800 dark:hover:text-gray-100 hidden md:inline">Login</span>
+                </a>
+            @endguest
+            @auth
+                <a href="{{route('app.dashboard')}}" wire:navigate class="flex items-center space-x-1">
+                    <i class='bx bx-home text-lg'></i> <!-- Boxicon for Login -->
+                    <span class="hover:text-gray-800 dark:hover:text-gray-100 hidden md:inline">Dashboard</span>
+                </a>
+            @endauth
+
         </div>
     </div>
 
@@ -230,12 +240,12 @@
 
     </div>
 
-    <div x-show="mobileOpen" x-collapse.duration.300ms
-         class="absolute right-0 left-0 top-20 mt-4 space-y-2 shadow-lg bg-dark rounded-md z-50">
+    <div x-show="mobileOpen"  x-collapse.duration.300ms @click.outside="mobileOpen=false"
+         class="absolute right-0 left-0 top-32 mt-4 space-y-2 shadow-lg bg-dark rounded-md z-50">
         <ul class="bg-dark p-4 rounded-md">
             <!-- Home Link -->
             <li>
-                <a href="#" class="block text-white py-2">Home</a>
+                <a  class="block text-white py-2">Home</a>
             </li>
             <!-- About Dropdown -->
             <li x-data="{ dropdownOpen: false }">

@@ -60,6 +60,11 @@
                 <i class='bx bxl-product-hunt text-xl {{Route::is('app.profile')?'bx-tada':''}}'></i><span
                     class="">@lang('profile')</span>
             </a>
+            <a href="{{route('app.faqs')}}" wire:navigate
+               class="navMenuLink items-center {{Route::is('app.faqs')?'navActive':'navInactive'}}">
+                <i class='bx bx-help-circle text-xl {{Route::is('app.faqs')?'bx-tada':''}}'></i><span
+                    class="">@lang('faqs')</span>
+            </a>
 {{--            <a href="{{route('app.setting')}}" wire:navigate--}}
 {{--               class="navMenuLink items-center {{Route::is('app.setting')?'navActive':'navInactive'}}">--}}
 {{--                <i class='bx bx-cog text-xl {{Route::is('app.setting')?'bx-tada':''}}'></i><span--}}
