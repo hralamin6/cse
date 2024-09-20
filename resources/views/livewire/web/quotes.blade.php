@@ -7,6 +7,9 @@
          @mousemove="moveDrag($event)"
          @mouseup="endDrag($event)"
          @mouseleave="endDrag($event)"
+         @touchstart="startDrag($event)"
+         @touchmove="moveDrag($event)"
+         @touchend="endDrag($event)"
          class="relative w-full h-[300px] bg-red-600 flex items-center justify-center">
 
         <!-- Quotes -->

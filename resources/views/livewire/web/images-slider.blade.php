@@ -6,7 +6,10 @@
         @mousedown="startDrag($event)"
         @mousemove="moveDrag($event)"
         @mouseup="endDrag($event)"
-        @mouseleave="endDrag($event)"> <!-- Handle mouse leave to reset if dragging ends off the screen -->
+        @touchstart="startDrag($event)"
+        @touchmove="moveDrag($event)"
+        @touchend="endDrag($event)"
+    > <!-- Handle mouse leave to reset if dragging ends off the screen -->
 
         <!-- Slides -->
         <template x-for="(slide, index) in slides" :key="index">
