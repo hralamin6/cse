@@ -29,10 +29,27 @@
 @endpush
 <!-- Main Navbar -->
 <nav class="bg-primary-dark dark:bg-primary-light text-white" x-data="{mobileOpen: false, open: false }">
+
+    <div class="bg-purple-800 text-white p-2 flex gap-2 md:gap-4 items-center justify-between dark:bg-gray-900 dark:text-gray-300">
+        <!-- Latest Notices Section -->
+        <div class="flex items-center space-x-2 shrink-0 text-xs md:text-sm">
+            <span class="text-yellow-400 font-bold whitespace-nowrap">Notices:</span>
+        </div>
+        <div class="marquee-wrapper text-end w-full">
+            <p class="marquee-content inline-block space-x-4 text-xs md:text-sm">
+                {{--                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>--}}
+                {{--                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>--}}
+                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. * Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dignissimos id natus placeat praesentium repudiandae vero? Ad aliquid culpa doloremque, est iure mollitia sit. Illum inventore numquam officia porro sapiente!</a>
+                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>
+
+            </p>
+        </div>
+
+    </div>
     <!-- Top Bar with Icons, Text, and Responsive Design -->
     <div class="bg-gray-100 dark:bg-gray-800 text-gray-600  dark:text-gray-300 text-sm py-2 px-4 flex md:flex-row items-center justify-between">
         <!-- Left Section -->
-        <div class="flex items-center space-x-4 mb-2 md:mb-0">
+        <div class="flex items-center space-x-4 md:mb-0">
             <!-- Email Section -->
             <div class="flex items-center space-x-1">
                 <i class='bx bx-envelope text-lg'></i> <!-- Boxicon for email -->
@@ -56,18 +73,17 @@
                 <i class='bx bxl-facebook-circle text-lg'></i> <!-- Boxicon for Facebook -->
                 <a href="#" class="hover:text-gray-800 dark:hover:text-gray-100 hidden md:inline">facebook</a>
             </div>
+            <span class="hidden md:inline">|</span>
+
+            <div class="flex items-center space-x-1">
+                <i class='bx bx-question-mark text-lg'></i> <!-- Boxicon for FAQ -->
+                <span class="hidden md:inline">FAQ</span> <!-- Hide text on very small screens -->
+            </div>
         </div>
 
         <!-- Right Section -->
         <div class="flex items-center space-x-4">
             <!-- FAQ Section -->
-            <div class="flex items-center space-x-1">
-                <i class='bx bx-question-mark text-lg'></i> <!-- Boxicon for FAQ -->
-                <span class="">FAQ</span> <!-- Hide text on very small screens -->
-            </div>
-
-            <!-- Divider -->
-            <span class="hidden md:inline">|</span>
 
             <!-- Dark Mode Toggle -->
             <div class="relative flex items-center space-x-1" @click="toggleTheme()">
@@ -82,11 +98,11 @@
             <div x-data="{ open: false }" class="relative flex items-center space-x-1">
                 <i class='bx bx-globe text-lg cursor-pointer' @click="open = !open"></i>
                 <div class="group inline-block">
-                    <button class="focus:outline-none" @click="open = !open">Language</button>
-                    <ul x-show="open" @click.away="open = false" class="absolute bg-white dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">English</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">Bangla</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">Spanish</a></li>
+                    <button class="focus:outline-none hidden md:inline" @click="open = !open">Language</button>
+                    <ul x-show="open" @click.away="open = false" class="absolute bg-white dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32 z-50">
+                        <li><a wire:click.prevent="$set('locale', 'bn')" class="cursor-pointer {{session()->get('locale') == 'bn' ? 'bg-gray-200 dark:bg-gray-600' : ''}} block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">Bangla</a></li>
+                        <li><a wire:click.prevent="$set('locale', 'en')" class="cursor-pointer {{session()->get('locale') == 'en' ? 'bg-gray-200 dark:bg-gray-600' : ''}} block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">English</a></li>
+                        <li><a wire:click.prevent="$set('locale', 'ar')" class="cursor-pointer {{session()->get('locale') == 'ar' ? 'bg-gray-200 dark:bg-gray-600' : ''}} block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="open = false">Arabic</a></li>
                     </ul>
                 </div>
             </div>
@@ -97,11 +113,45 @@
             <div x-data="{ open: false }" class="relative flex items-center space-x-1">
                 <i class='bx bx-palette text-lg cursor-pointer' @click="open = !open"></i>
                 <div class="group inline-block">
-                    <button class="focus:outline-none" @click="open = !open">Theme</button>
-                    <ul x-show="open" @click.away="open = false" class="absolute bg-white dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('light'); open = false">Light</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('dark'); open = false">Dark</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('system'); open = false">System</a></li>
+                    <button class="focus:outline-none hidden md:inline" @click="open = !open">Theme</button>
+                    <ul x-show="open" @click.away="open = false" class="absolute bg-white dark:bg-gray-700 shadow-md mt-2 py-1 text-gray-700 dark:text-gray-200 w-32 z-50">
+{{--                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('light'); open = false">Light</a></li>--}}
+{{--                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('dark'); open = false">Dark</a></li>--}}
+{{--                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600" @click="setTheme('system'); open = false">System</a></li>--}}
+                        <li>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button
+                                    @click="setColors('cyan')"
+                                    class="w-10 h-10 rounded-full"
+                                    style="background-color: var(--color-cyan)"
+                                ></button>
+                                <button
+                                    @click="setColors('teal')"
+                                    class="w-10 h-10 rounded-full"
+                                    style="background-color: var(--color-teal)"
+                                ></button>
+                                <button
+                                    @click="setColors('green')"
+                                    class="w-10 h-10 rounded-full"
+                                    style="background-color: var(--color-green)"
+                                ></button>
+                                <button
+                                    @click="setColors('fuchsia')"
+                                    class="w-10 h-10 rounded-full"
+                                    style="background-color: var(--color-fuchsia)"
+                                ></button>
+                                <button
+                                    @click="setColors('blue')"
+                                    class="w-10 h-10 rounded-full"
+                                    style="background-color: var(--color-blue)"
+                                ></button>
+                                <button
+                                    @click="setColors('violet')"
+                                    class="w-10 h-10 rounded-full"
+                                    style="background-color: var(--color-violet)"
+                                ></button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,27 +162,11 @@
             <!-- Login Section -->
             <div class="flex items-center space-x-1">
                 <i class='bx bx-lock-alt text-lg'></i> <!-- Boxicon for Login -->
-                <a href="#" class="hover:text-gray-800 dark:hover:text-gray-100">Login</a>
+                <a href="#" class="hover:text-gray-800 dark:hover:text-gray-100 hidden md:inline">Login</a>
             </div>
         </div>
     </div>
 
-    <div class="bg-purple-800 text-white p-2 flex gap-2 md:gap-4 items-center justify-between dark:bg-gray-900 dark:text-gray-300">
-        <!-- Latest Notices Section -->
-        <div class="flex items-center space-x-2 shrink-0 text-xs md:text-sm">
-            <span class="text-yellow-400 font-bold whitespace-nowrap">Notices:</span>
-        </div>
-        <div class="marquee-wrapper text-end w-full">
-            <p class="marquee-content inline-block space-x-4 text-xs md:text-sm">
-{{--                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>--}}
-{{--                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>--}}
-                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. * Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dignissimos id natus placeat praesentium repudiandae vero? Ad aliquid culpa doloremque, est iure mollitia sit. Illum inventore numquam officia porro sapiente!</a>
-                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>
-
-            </p>
-        </div>
-
-    </div>
 
 
     <!-- Logo and Main Menu -->
@@ -141,15 +175,15 @@
         <a href="{{route('web.home')}}" wire:navigate class="dark:bg-primary-light rounded border-gray-500 p-2">
             <img src="{{ getSettingImage('logoImage', 'logo', 'default') }}" alt="" class=" h-10">
         </a>
-{{--        <div class="flex items-center space-x-4">--}}
-{{--            <img src="https://via.placeholder.com/50" alt="University Logo" class="w-10 h-10">--}}
-{{--            <div>--}}
-{{--                <h1 class="font-bold text-lg">--}}
-{{--                    <span class="text-green-500">পটুয়াখালী বিজ্ঞান</span> ও <span class="text-purple-500">প্রযুক্তি বিশ্ববিদ্যালয়</span>--}}
-{{--                </h1>--}}
-{{--                <h2 class="text-xs italic">Patuakhali Science and Technology University</h2>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        {{--        <div class="flex items-center space-x-4">--}}
+        {{--            <img src="https://via.placeholder.com/50" alt="University Logo" class="w-10 h-10">--}}
+        {{--            <div>--}}
+        {{--                <h1 class="font-bold text-lg">--}}
+        {{--                    <span class="text-green-500">পটুয়াখালী বিজ্ঞান</span> ও <span class="text-purple-500">প্রযুক্তি বিশ্ববিদ্যালয়</span>--}}
+        {{--                </h1>--}}
+        {{--                <h2 class="text-xs italic">Patuakhali Science and Technology University</h2>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
         <div class="md:hidden flex items-center">
             <button @click="mobileOpen = !mobileOpen" class="focus:outline-none">
                 <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
