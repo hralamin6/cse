@@ -1,26 +1,24 @@
 @push('head')
     <style>
-        .marquee {
-            display: inline-block;
-            white-space: nowrap;
-            position: absolute;
-            will-change: transform;
-            animation: scroll 15s linear infinite;
+        /* Marquee effect */
+        .marquee-container {
+            width: 100%; /* Full width container */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide the overflowed part of the text */
         }
 
-        @keyframes scroll {
+        .marquee-text {
+            display: inline-block;
+            animation: marquee 5s linear infinite; /* Create scrolling animation */
+        }
+
+        @keyframes marquee {
             0% {
-                transform: translateX(100%);
+                transform: translateX(100%); /* Start from right to left */
             }
             100% {
-                transform: translateX(-100%);
+                transform: translateX(-100%); /* End at the left */
             }
-        }
-
-        /* Styling for the links */
-        .marquee a {
-            color: white; /* Custom link color (purple) */
-            text-decoration: none;
         }
 
         .marquee a:hover {
@@ -33,16 +31,81 @@
 <!-- Main Navbar -->
 <nav class="bg-primary-dark dark:bg-primary-light text-white" x-data="{mobileOpen: false, open: false }">
     <!-- Latest Notices Section -->
-    <div class="bg-slate-500  font-semibold py-2 text-center overflow-hidden relative h-8">
-        <div class="marquee">
-            <ul style="display: flex; justify-content: start; gap: 10px;">
-                <li>
-                    <a href="https://www.pstu.ac.bd/notices/pbiprbir-deputi-rejistrar-d-mohammd-kamrul-islam-er-liyen-chuti-batil-sngkrant-ofis-ades">পবিপ্রবি’র ডেপুটি রেজিস্ট্রার ড. মোহাম্মদ কামরুল ইসলাম এর লিয়েন ছুটি বাতিল সংক্রান্ত অফিস আদেশ</a> |
-                </li>
-                <li>
-                    <a href="https://www.pstu.ac.bd/notices/pbiprbir-shkaree-prktr-pder-dayitw-prdan-sngkrant-ofis-ades">পবিপ্রবি’র সহকারী প্রক্টর পদের দায়িত্ব প্রদান সংক্রান্ত অফিস আদেশ</a> |
-                </li>
-            </ul>
+{{--    <div class="bg-slate-500  font-semibold py-2 text-center overflow-hidden relative h-8">--}}
+{{--        <div class="marquee">--}}
+{{--            <ul style="display: flex; justify-content: start; gap: 10px;">--}}
+{{--                <li>--}}
+{{--                    <a href="https://www.pstu.ac.bd/notices/pbiprbir-deputi-rejistrar-d-mohammd-kamrul-islam-er-liyen-chuti-batil-sngkrant-ofis-ades">পবিপ্রবি’র ডেপুটি রেজিস্ট্রার ড. মোহাম্মদ কামরুল ইসলাম এর লিয়েন ছুটি বাতিল সংক্রান্ত অফিস আদেশ</a> |--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a href="https://www.pstu.ac.bd/notices/pbiprbir-shkaree-prktr-pder-dayitw-prdan-sngkrant-ofis-ades">পবিপ্রবি’র সহকারী প্রক্টর পদের দায়িত্ব প্রদান সংক্রান্ত অফিস আদেশ</a> |--}}
+{{--                </li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+    <div class="bg-purple-800 text-white py-2 px-4 flex gap-2 items-center justify-between dark:bg-gray-900 dark:text-gray-300">
+        <!-- Latest Notices Section -->
+        <div class="flex items-center space-x-2 w-24 bg-red-500">
+            <span class="text-yellow-400 font-bold whitespace-nowrap">Latest Notices:</span>
+        </div>
+        <div class="marquee-container text-end w-full bg-green-500">
+            <p class="marquee-text inline-block space-x-4">
+{{--                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>--}}
+{{--                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>--}}
+                <a href="#" class="no-wrap">* sgs fdg Lorem ipsum dolor sit amet. *</a>
+            </p>
+        </div>
+        <!-- Login Section -->
+        <a href="#" class="text-yellow-400 font-bold whitespace-nowrap w-24 bg-yellow-500">
+            Login (BETA)
+        </a>
+    </div>
+
+
+    <div class="top-bar-area bg-dark inc-border text-light main_topbar p-0 pt-2">
+        <div class="container">
+            <div class="" style="display: flex; align-items: center;">
+                <div class="d-sm-none p-2" style="min-width: 125px; font-weight: bold;">
+                    <h4 class="" style="font-weight: bold; color: #f5ee0a;">Latest Notices: </h4>
+                </div>
+                <div class="" style="flex-grow: 1;">
+                    <div class="info">
+                        <marquee>
+                            <ul style="display: flex; align-items: center; gap: 10px;">
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/pbiprbir-deputi-rejistrar-d-mohammd-kamrul-islam-er-liyen-chuti-batil-sngkrant-ofis-ades">পবিপ্রবি’র ডেপুটি রেজিস্ট্রার ড. মোহাম্মদ কামরুল ইসলাম এর লিয়েন ছুটি বাতিল সংক্রান্ত অফিস আদেশ</a> |
+                                </li>
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/pbiprbir-shkaree-prktr-pder-dayitw-prdan-sngkrant-ofis-ades">পবিপ্রবি’র সহকারী প্রক্টর পদের দায়িত্ব প্রদান সংক্রান্ত অফিস আদেশ</a> |
+                                </li>
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/pbiprbir-pribhn-krmkrtar-dayitw-prdan-prsngoe">পবিপ্রবি’র পরিবহন কর্মকর্তার দায়িত্ব প্রদান প্রসঙ্গে</a> |
+                                </li>
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/krmkrta-oo-krmcareeder-bdlee-sngkrant-ofis-ades">কর্মকর্তা ও কর্মচারীদের বদলী সংক্রান্ত অফিস আদেশ</a> |
+                                </li>
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/kbi-begm-sufiya-kamal-hler-shkaree-prvost-er-dayitw-prdan-sngkrant-ofis-ades">কবি বেগম সুফিয়া কামাল হলের সহকারী প্রভোস্ট এর দায়িত্ব প্রদান সংক্রান্ত অফিস আদেশ</a> |
+                                </li>
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/kbi-begm-sufiya-kamal-hler-shkaree-prvost-er-dayitw-prdan-sngkrant-ofis-ades">কবি বেগম সুফিয়া কামাল হলের সহকারী প্রভোস্ট এর দায়িত্ব প্রদান সংক্রান্ত অফিস আদেশ</a> |
+                                </li>
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/biswbidzalyer-abasik-oo-khamar-elakay-basa-bradd-sngkrant-jruree-notis">বিশ্ববিদ্যালয়ের আবাসিক ও খামার এলাকায় বাসা বরাদ্দ সংক্রান্ত জরুরী নোটিশ</a> |
+                                </li>
+                                <li>
+                                    <a href="https://www.pstu.ac.bd/notices/admitted-students-list-phdmsmballm-of-january-june2023-session">Admitted Students&#039; List (PhD/MS/MBA/LLM) of January- June&#039;2023 Session</a> |
+                                </li>
+                            </ul>
+                        </marquee>
+                    </div>
+                </div>
+                <ul class="px-4" style="display: flex; justify-content: end; align-items: center; margin-top: -8px; font-weight: bold;">
+                    <li><a href="https://www.pstu.ac.bd/login" style="font-weight: bold; color: #f5ee0a;">
+                            Login</a></li>
+                    <li class="ps-3"><b>(BETA)</b></li>
+                </ul>
+            </div>
         </div>
     </div>
 
