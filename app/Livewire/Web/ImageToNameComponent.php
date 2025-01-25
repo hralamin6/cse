@@ -31,7 +31,7 @@ class ImageToNameComponent extends Component
 
             // Add the question
             $this->questions[] = [
-                'question' => $student->image,
+                'question' => $student->id,
                 'options' => $nameOptions,
                 'answer' => $student->name, // Store the correct answer
             ];

@@ -15,7 +15,7 @@
                                 <img
                                     class="object-cover w-24 h-24 rounded-full ring-4 ring-gray-300"
 {{--                                    src="{{asset("/students/$question['question]")}}"--}}
-                                    src="{{ asset("students/{$question['question']}") }}"
+                                    src="{{ asset("students/{$question['question']}.jpg") }}"
 
                                     alt="Arthur Melo"
                                 />?
