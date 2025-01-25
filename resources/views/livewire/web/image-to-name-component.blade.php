@@ -95,7 +95,7 @@
                                     {{ $index + 1 }}. Name of
                                     <img
                                         class="object-cover w-24 h-24 rounded-full ring-4 ring-gray-300"
-                                        src="{{asset("/students/$image")}}"
+                                        src="{{asset("/students/$image.jpg")}}"
                                         alt="Arthur Melo"
                                     />?
                                 </h3>

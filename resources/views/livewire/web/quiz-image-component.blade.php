@@ -28,7 +28,7 @@
 
                                             <img
                                                 class="object-cover w-24 h-24 rounded-full ring-4 ring-gray-300"
-                                                src="{{asset("/students/$option")}}"
+                                                src="{{asset("/students/$option.jpg")}}"
                                                 alt="Arthur Melo"
                                             />
                                         </center>
@@ -108,7 +108,7 @@
 
                                                 <img
                                                     class="object-cover w-24 h-24 rounded-full ring-4 ring-gray-300"
-                                                    src="{{asset("/students/$option")}}"
+                                                    src="{{asset("/students/$option.jpg")}}"
                                                     alt="Arthur Melo"
                                                 />
                                             </center>

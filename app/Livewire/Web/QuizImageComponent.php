@@ -21,18 +21,18 @@ class QuizImageComponent extends Component
         foreach ($students as $student) {
             $imageOptions = Student::where('gender', 'male')->inRandomOrder()
                 ->limit(3)
-                ->pluck('image')
+                ->pluck('id')
                 ->toArray();
 
             // Add the correct image and shuffle options
-            $imageOptions[] = $student->image;
+            $imageOptions[] = $student->id;
             shuffle($imageOptions);
 
             // Add the question
             $this->questions[] = [
                 'question' => "Image of {$student->name}?",
                 'options' => $imageOptions,
-                'answer' => $student->image, // Store the correct answer
+                'answer' => $student->id, // Store the correct answer
             ];
         }
     }
