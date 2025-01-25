@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Livewire\Web\HomeComponent::class)->name('web.home');
+Route::get('/nobodoy', \App\Livewire\Web\NobodoyComponent::class)->name('web.nobodoy');
+Route::get('/name-to-district', \App\Livewire\Web\QuizComponent::class)->name('web.quiz');
+Route::get('/district-to-name', \App\Livewire\Web\DistrictToNameComponent::class)->name('web.district.name');
+Route::get('/name-to-image', \App\Livewire\Web\QuizImageComponent::class)->name('web.image.quiz');
+Route::get('/image-to-name', \App\Livewire\Web\ImageToNameComponent::class)->name('web.image.name');
 Route::get('/faq', \App\Livewire\Web\FaqComponent::class)->name('web.faq');
 Route::get('/news/{slug}', \App\Livewire\Web\NewsDetailComponent::class)->name('web.news.detail');
 

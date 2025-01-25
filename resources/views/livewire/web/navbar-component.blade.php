@@ -182,7 +182,7 @@
     <!-- Logo and Main Menu -->
     <div class="container mx-auto flex justify-between items-center py-1 px-6" >
         <!-- Logo Section -->
-        <a href="{{route('web.home')}}" wire:navigate class="dark:bg-primary-light rounded border-gray-500 p-2">
+        <a href="{{route('web.nobodoy')}}" wire:navigate class="dark:bg-primary-light rounded border-gray-500 p-2">
             <img src="{{ getSettingImage('logoImage', 'logo', 'default') }}" alt="" class=" h-10">
         </a>
         {{--        <div class="flex items-center space-x-4">--}}
@@ -203,7 +203,7 @@
         </div>
         <!-- Menu Links -->
         <ul class="hidden md:flex space-x-8 text-sm font-semibold">
-            <li><a href="#" class="hover:underline">About</a></li>
+            <li><a href="{{route('web.nobodoy')}}" wire:navigate class="hover:underline">About</a></li>
             <li  @mouseenter="open = true" @mouseleave="open = false">
                 <a href="#" @click="open = !open" class="hover:underline flex items-center">
                     Academics <svg class="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9l-7 7-7-7"></path></svg>
@@ -245,7 +245,7 @@
         <ul class="bg-dark p-4 rounded-md">
             <!-- Home Link -->
             <li>
-                <a  class="block text-white py-2">Home</a>
+                <a href="{{route('web.nobodoy')}}" wire:navigate  class="block text-white py-2">Home</a>
             </li>
             <!-- About Dropdown -->
             <li x-data="{ dropdownOpen: false }">
