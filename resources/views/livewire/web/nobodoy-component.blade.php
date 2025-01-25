@@ -38,7 +38,8 @@
                             />
                         <!-- Student Name -->
                         <h1 class="mt-4 text-xl md:text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
-                            {{$student->name}}:  {{$student->id}}
+                            {{$student->name}}
+{{--                            :  {{$student->id}}--}}
                         </h1>
 
                         <!-- Student Details -->

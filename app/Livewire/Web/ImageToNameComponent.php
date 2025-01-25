@@ -15,11 +15,11 @@ class ImageToNameComponent extends Component
     public function mount()
     {
         // Fetch data from the Student model
-        $students = Student::inRandomOrder()->limit(10)->get();
+        $students = Student::where('gender', 'male')->inRandomOrder()->limit(10)->get();
 
         // Create dynamic questions
         foreach ($students as $student) {
-            $nameOptions = Student::where('name', '!=', $student->name)
+            $nameOptions = Student::where('gender', 'male')->where('name', '!=', $student->name)
                 ->inRandomOrder()
                 ->limit(3)
                 ->pluck('name')

@@ -15,11 +15,11 @@ class QuizImageComponent extends Component
     public function mount()
     {
         // Fetch data from the Student model
-        $students = Student::inRandomOrder()->limit(10)->get();
+        $students = Student::where('gender', 'male')->inRandomOrder()->limit(10)->get();
 
         // Create dynamic questions
         foreach ($students as $student) {
-            $imageOptions = Student::inRandomOrder()
+            $imageOptions = Student::where('gender', 'male')->inRandomOrder()
                 ->limit(3)
                 ->pluck('image')
                 ->toArray();

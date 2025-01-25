@@ -185,6 +185,10 @@
         <a href="{{route('web.nobodoy')}}" wire:navigate class="dark:bg-primary-light rounded border-gray-500 p-2">
             <img src="{{ getSettingImage('logoImage', 'logo', 'default') }}" alt="" class=" h-10">
         </a>
+        <a href="{{route('web.nobodoy')}}" wire:navigate class="dark:bg-primary-light rounded border-gray-500 p-2">
+            NOBODOY
+        </a>
+
         {{--        <div class="flex items-center space-x-4">--}}
         {{--            <img src="https://via.placeholder.com/50" alt="University Logo" class="w-10 h-10">--}}
         {{--            <div>--}}
@@ -245,7 +249,7 @@
         <ul class="bg-dark p-4 rounded-md">
             <!-- Home Link -->
             <li>
-                <a href="{{route('web.nobodoy')}}" wire:navigate  class="block text-white py-2">Home</a>
+                <a href="{{route('web.nobodoy')}}" wire:navigate  class="block text-white py-2">NOBODOY</a>
             </li>
             <!-- About Dropdown -->
             <li x-data="{ dropdownOpen: false }">
