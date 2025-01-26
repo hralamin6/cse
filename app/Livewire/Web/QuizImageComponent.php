@@ -32,7 +32,7 @@ class QuizImageComponent extends Component
             $this->questions[] = [
                 'question' => "Image of {$student->name}?",
                 'options' => $imageOptions,
-                'answer' => $student->id, // Store the correct answer
+                'answer' => $student->id,
             ];
         }
     }
@@ -43,9 +43,11 @@ class QuizImageComponent extends Component
 
         // Loop through questions and validate user answers
         foreach ($this->questions as $index => $question) {
-            if (isset($this->answers[$index]) && $this->answers[$index] === $question['answer']) {
+            if (isset($this->answers[$index]) && $this->answers[$index] == $question['answer']) {
                 $this->score++;
             }
+//            dd($this->score);
+//            dd($this->answers[$index] .':'.$question['answer']);
         }
     }
 

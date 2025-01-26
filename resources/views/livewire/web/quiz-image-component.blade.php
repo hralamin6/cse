@@ -100,8 +100,8 @@
                                     @foreach ($question['options'] as $option)
                                         <div
                                             class="p-3 rounded-lg text-center font-medium cursor-pointer
-                        @if ($option === $question['answer']) bg-green-500 text-white
-                        @elseif (isset($answers[$index]) && $answers[$index] === $option) bg-red-500 text-white
+                        @if ($option == $question['answer']) bg-green-500 text-white
+                        @elseif (isset($answers[$index]) && $answers[$index] == $option) bg-red-500 text-white
                         @else bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200
                         @endif">
                                             <center>
